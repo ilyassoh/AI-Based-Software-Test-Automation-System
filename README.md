@@ -88,8 +88,6 @@ cdd    - Installez Angular CLI globalement : `npm install -g @angular/cli`.
 
 - Accédez à l'interface frontend à [http://localhost:4200](http://localhost:4200) dans votre navigateur.
 
-Votre projet full-stack devrait maintenant être opérationnel en local. Si vous rencontrez des problèmes, consultez les journaux de la console pour les messages d'erreur et assurez-vous que toutes les dépendances et prérequis sont correctement installés.
-
 ## Vidéo de Démonstration
 
 Cliquez sur le lien ci-dessous pour regarder une vidéo de démonstration :
