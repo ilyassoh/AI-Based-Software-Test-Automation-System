@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+          <h5 class="mb-0">Project Files</h5>
+          <button 
+            class="btn btn-link generate-tests-btn ms-2"
+            (click)="navigateToTestGenerate()"
+            *ngIf="projectName"
+          >
+            <i class="bi bi-lightning-fill"></i> Generate Tests
+          </button>
+        </div>
+        <button class="btn btn-link refresh-button" (click)="refresh()">
+          <i class="bi bi-arrow-clockwise"></i>
+        </button>
+      </div>
+      <div class="card-body p-0">
+        <!-- Loading spinner -->
+        <div *ngIf="loading" class="text-center p-3">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+
+        <!-- Error message -->
+        <div *ngIf="error" class="alert alert-danger">
+          {{ error }}
+        </div>
+
+        <!-- File Tree -->
+        <div class="file-tree">
+          <ng-container *ngTemplateOutlet="fileTreeTemplate; context: { $implicit: treeNodes, level: 0 }">
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- File Content Panel -->
+  <div class="col-md-8">
+    <app-file-view
+      [projectName]="projectName"
+      [filePath]="selectedFilePath"
+      (pathChange)="handlePathChange($event.toString())"
+    ></app-file-view>
+  </div>
+</div>
+
+<ng-template #fileTreeTemplate let-nodes let-level="level">
+  <div *ngFor="let node of nodes" class="tree-node" [class.active]="selectedFilePath === node.path">
+    <div class="node-content" 
+         (click)="viewFile(node)"
+         [style.padding-left.px]="level * 20">
+      <i *ngIf="node.isDirectory" 
+         class="bi toggle-icon"
+         [class.bi-chevron-right]="!node.isExpanded"
+         [class.bi-chevron-down]="node.isExpanded"
+         (click)="toggleNode(node); $event.stopPropagation()">
+      </i>
+      <i class="bi me-1" 
+         [class.bi-folder-fill]="node.isDirectory"
+         [class.bi-file-earmark-text]="!node.isDirectory">
+      </i>
+      <span class="node-name">{{ node.name }}</span>
+    </div>
+    <div class="node-children" *ngIf="node.children && node.isExpanded">
+      <ng-container *ngTemplateOutlet="fileTreeTemplate; context: { $implicit: node.children, level: level + 1 }">
+      </ng-container>
+    </div>
+  </div>
+</ng-template>

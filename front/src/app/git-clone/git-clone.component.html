@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h2 class="mb-0">Clone Repository</h2>
+    </div>
+    <div class="card-body">
+      <div class="form-group">
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="Enter Git Repository URL"
+            [(ngModel)]="gitUrl"
+          />
+          <button class="btn btn-primary" (click)="cloneRepository()">
+            <i class="bi bi-git"></i> Clone
+          </button>
+        </div>
+      </div>
+      <div 
+        class="alert" 
+        [ngClass]="{'alert-danger': message.includes('Failed'), 'alert-info': !message.includes('Failed')}" 
+        *ngIf="message"
+      >
+        <i class="bi" [ngClass]="{'bi-exclamation-triangle-fill': message.includes('Failed'), 'bi-info-circle': !message.includes('Failed')}"></i>
+        {{ message }}
+      </div>
+    </div>
+  </div>
+
+  <div class="card mt-4">
+    <div class="card-header">
+      <h3 class="mb-0">Your Projects</h3>
+    </div>
+    <div class="card-body">
+      <div class="list-group">
+        <div class="list-group-item list-group-item-action" *ngFor="let project of projects">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="project-info">
+              <i class="bi bi-folder me-2"></i>
+              <a (click)="navigateToProject(project)" class="project-link">
+                {{ project }}
+              </a>
+            </div>
+            <div class="btn-group">
+              <button
+                class="btn btn-outline-primary btn-sm me-2"
+                (click)="navigateToTestGenerate(project)"
+              >
+                <i class="bi bi-lightning me-1"></i> Generate Tests
+              </button>
+              <button
+                class="btn btn-outline-secondary btn-sm"
+                (click)="downloadProject(project)"
+              >
+                <i class="bi bi-download me-1"></i> Download
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

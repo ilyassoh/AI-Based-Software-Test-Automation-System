@@ -1,0 +1,34 @@
+<div class="card">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <div class="d-flex align-items-center">
+      <button class="btn btn-link back-button me-3" (click)="goBack()">
+        <i class="bi bi-arrow-left"></i>
+      </button>
+      <h3 class="mb-0">Generate Tests</h3>
+    </div>
+    <span class="badge bg-primary">Project: {{ projectName }}</span>
+  </div>
+  <div class="card-body">
+    <div class="text-center mb-4">
+      <p class="lead text-muted">Generate unit tests for your project using AI</p>
+      <button class="btn btn-primary btn-lg" (click)="generateTest()">
+        <i class="bi bi-lightning-charge-fill me-2"></i>
+        Generate Tests
+      </button>
+    </div>
+    
+    <div *ngIf="loading" class="text-center mt-4">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <p class="mt-2 text-muted">Generating tests...</p>
+    </div>
+
+    <div *ngIf="message" class="mt-4">
+      <div class="alert" [ngClass]="{'alert-success': !message.includes('error'), 'alert-danger': message.includes('error')}">
+        <i class="bi" [ngClass]="{'bi-check-circle-fill': !message.includes('error'), 'bi-exclamation-triangle-fill': message.includes('error')}"></i>
+        <span class="ms-2">{{ message }}</span>
+      </div>
+    </div>
+  </div>
+</div>

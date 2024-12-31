@@ -1,0 +1,106 @@
+.file-view {
+    padding: 1rem;
+}
+
+.file-header {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+}
+
+.file-path {
+    color: #666;
+    font-family: monospace;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.content-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.code-container {
+    background: #f8f9fa;
+    border-radius: 4px;
+    padding: 1.5rem;
+    overflow: auto;
+    max-height: 80vh;
+    position: relative;
+}
+
+.code-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #007bff, #6610f2);
+}
+
+pre {
+    margin: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+code {
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Syntax highlighting colors */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #6c757d;
+    font-style: italic;
+}
+
+.token.function {
+    color: #007bff;
+}
+
+.token.keyword {
+    color: #6610f2;
+    font-weight: bold;
+}
+
+.token.string {
+    color: #28a745;
+}
+
+.token.number {
+    color: #dc3545;
+}
+
+/* Back button styling */
+.btn-outline-secondary {
+    border-color: #dee2e6;
+    color: #6c757d;
+    transition: all 0.2s ease;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #f8f9fa;
+    border-color: #6c757d;
+    transform: translateX(-2px);
+}
+
+/* Loading spinner */
+.spinner-border {
+    width: 2rem;
+    height: 2rem;
+}
+
+/* Alert styling */
+.alert {
+    margin: 1rem;
+    border-radius: 4px;
+}

@@ -1,0 +1,146 @@
+.list-group-item {
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.list-group-item:hover {
+  background-color: rgba(52, 152, 219, 0.1);
+  border-left-color: var(--primary-color);
+}
+
+.list-group-item.active {
+  background-color: rgba(52, 152, 219, 0.2);
+  border-left-color: var(--primary-color);
+  color: inherit;
+}
+
+.list-group-item i {
+  color: var(--primary-color);
+}
+
+.card {
+  border: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card-header {
+  background-color: white;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.btn-outline-primary {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-button {
+  padding: 0.5rem;
+  color: #666;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+}
+
+.back-button:hover {
+  color: var(--primary-color);
+  background-color: rgba(52, 152, 219, 0.1);
+  transform: translateX(-2px);
+}
+
+.refresh-button {
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.refresh-button:hover {
+  color: var(--primary-color);
+  transform: rotate(180deg);
+}
+
+.file-tree {
+    padding: 8px 0;
+}
+
+.tree-node {
+    position: relative;
+}
+
+.node-content {
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.node-content:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.tree-node.active > .node-content {
+    background-color: #e6f3ff;
+    border-left: 2px solid #0366d6;
+}
+
+.toggle-icon {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 4px;
+    cursor: pointer;
+    color: #57606a;
+}
+
+.bi-folder-fill {
+    color: #54aeff;
+
+}
+
+.bi-file-earmark-text {
+    color: #54aeff;
+}
+
+.node-name {
+    margin-left: 4px;
+    color: #24292f;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+}
+
+.card-header {
+    background-color: white;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.generate-tests-btn {
+    color: #0d6efd;
+    text-decoration: none;
+    padding: 0;
+    font-size: 0.9rem;
+    font-weight: normal;
+    border: none;
+}
+
+.generate-tests-btn:hover {
+    color: #0a58ca;
+    text-decoration: underline;
+}
+
+.generate-tests-btn i {
+    font-size: 0.8rem;
+}
